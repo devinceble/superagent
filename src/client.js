@@ -108,7 +108,8 @@ const trim = ''.trim ? s => s.trim() : s => s.replace(/(^\s*|\s*$)/g, '');
 function serialize(obj) {
   if (!isObject(obj)) return obj;
   const pairs = [];
-  for (const key in obj) {
+  let key;
+  for (key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key))
       pushEncodedKeyValuePair(pairs, key, obj[key]);
   }
